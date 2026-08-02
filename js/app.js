@@ -15,9 +15,13 @@ const msgEl = document.querySelector('#message')
 
 /*-------------------------------- Functions --------------------------------*/
 
+function play(event){
+
+}
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
-
+for (let eachSqr of sqrEl){
+    eachSqr.addEventListener('click', play)
+}
 
