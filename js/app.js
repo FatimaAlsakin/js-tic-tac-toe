@@ -3,6 +3,8 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
+let turn = null
+let winner = null
 
 
 /*------------------------ Cached Element References ------------------------*/
