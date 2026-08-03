@@ -27,6 +27,7 @@ const borderEl = document.querySelectorAll('.board')
 console.log(borderEl)
 const msgEl = document.querySelector('#message')
 console.log(msgEl)
+const resetBtnEl = document.querySelector('#reset')
 /*-------------------------------- Functions --------------------------------*/
 function init(){
     console.log('init function')
@@ -57,7 +58,7 @@ function updateMessage(){
         message = 'It is a tie'
     }
     else{
-        message = `${winner} has won `
+        message = `${turn} has won `
     }
 
     msgEl.textContent = message
@@ -116,3 +117,5 @@ init()
 for (let one of sqrEl ){
     one.addEventListener('click',handleClick)
 }
+
+resetBtnEl.addEventListener('click',init)
