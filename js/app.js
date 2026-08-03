@@ -29,13 +29,30 @@ function init(){
     render()
 }
 
-function render(){}
-
-
-
-/*----------------------------- Event Listeners -----------------------------*/
-for (let eachSqr of sqrEl){
-    eachSqr.addEventListener('click', play)
+function render(){
+    updateBoard()
+    updateMessage()
 }
 
+function updateBoard(){
+    board.forEach((cell , index) => {
+        sqrEl[index].textContent = cell
+    });
+}
+
+function updateMessage(){
+    if ( winner === false && tie === false){
+        message = `It is ${turn} turn`
+    }
+    else if( winner === false && tie === true){
+        message = 'It is a tie'
+    }
+    else{
+        message = `${winner} has won `
+    }
+
+    msgEl.textContent = message
+}
+
+/*----------------------------- Event Listeners -----------------------------*/
 init()
