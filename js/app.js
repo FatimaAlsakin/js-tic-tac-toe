@@ -63,5 +63,56 @@ function updateMessage(){
     msgEl.textContent = message
 }
 
+function handleClick (event){
+    const sqrIndex = event.target.id
+
+    if(board[sqrIndex]!==''||winner)
+        return
+
+    placePiece(sqrIndex)
+    console.log(board)
+    checkForWinner()
+    checkForTie()
+    switchPlayerTurn()
+    render()
+}
+
+function placePiece(index){
+    console.log(index)
+    board[index] = turn
+}
+
+function checkForWinner(){
+    for(let one of winningCombos){
+        if(
+            board[one[0]] !== '' &&
+            board[one[0]] === board[one[1]] &&
+            board[one[0]] === board[one[2]]
+        )
+            winner= true 
+
+    }
+}
+
+function checkForTie(){
+    if(winner)
+        return
+    else if( !board.includes(''))
+        tie = true
+}
+function switchPlayerTurn (){
+    if(winner)
+        return
+    
+    if(turn === 'X')
+        turn = 'O'
+    else if(turn === 'O')
+        turn = 'X'    
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
 init()
+
+for (let one of sqrEl ){
+    one.addEventListener('click',handleClick)
+}
